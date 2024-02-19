@@ -8,6 +8,7 @@ const dbConfigQoddi = {
     password: "fqAmtT8s?8*vrnJ",
     database: "freedb_comp2350-week2-A01388208",
     multipleStatements: false,
+	namedPlaceholders: true,
 };
 
 const dbConfigLocal = {
@@ -15,7 +16,8 @@ const dbConfigLocal = {
 	user: "root",
 	password: "Password",
 	database: "database1",
-	multipleStatements: false
+	multipleStatements: false,
+	namedPlaceholders: true,
 };
 
 if (is_qoddi) {
@@ -26,4 +28,5 @@ else {
 }
 
 module.exports = database;
+
 		
