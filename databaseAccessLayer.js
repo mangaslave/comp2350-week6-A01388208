@@ -56,4 +56,4 @@ return false;
 
 
 
-module.exports = {getAllUsers}
+module.exports = {getAllUsers, addUser}
