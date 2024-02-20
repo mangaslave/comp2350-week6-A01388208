@@ -9,8 +9,8 @@ global.include = function(file) {
 
 
 const express = require('express');
-const database = include('databaseConnection');
-const router = include('routes/router');
+const database = require('./databaseConnection.js');
+const router = require('./routes/router.js');
 
 const port = process.env.PORT || 3000;
 
@@ -35,13 +35,17 @@ const success = printMySQLVersion();
 
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
+
 
 app.use('/',router);
 app.use(express.static(__dirname + "/public"));
-app.use(express.urlencoded({extended: false}));
-
+app.use(express.urlencoded({ extended: false }));
+  
 app.listen(port, () => {
+
 	console.log("Node application listening on port "+port);
 }); 
 

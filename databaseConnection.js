@@ -12,8 +12,8 @@ const dbConfigQoddi = {
 };
 
 const dbConfigLocal = {
-	host: "localhost",
-	user: "root",
+	host: "sql.freedb.tech",
+    user: "freedb_2350_master",
 	password: "fqAmtT8s?8*vrnJ",
     database: "freedb_comp2350-week2-A01388208",
 	multipleStatements: false,
