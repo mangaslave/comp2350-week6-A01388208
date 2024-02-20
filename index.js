@@ -12,6 +12,8 @@ const express = require('express');
 const database = include('databaseConnection');
 const router = include('routes/router');
 
+app.use(express.urlencoded({ extended: false }));
+
 const port = process.env.PORT || 3000;
 
 async function printMySQLVersion() {
