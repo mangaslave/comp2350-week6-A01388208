@@ -23,7 +23,7 @@ const passwordPepper = "SeCretPeppa4MySal+";
 
 async function addUser(postData) {
  let sqlInsertSalt = `
-INSERT INTO web_user (web_user.first_name, web_user.last_name, web_user.email, web_user.password_salt)
+INSERT INTO web_user (first_name, last_name, email, password_salt)
 VALUES (:first_name, :last_name, :email, sha2(UUID(),512));
 `;
  let params = {
@@ -34,7 +34,7 @@ VALUES (:first_name, :last_name, :email, sha2(UUID(),512));
  console.log(sqlInsertSalt);
 try {
 const results = await database.query(sqlInsertSalt, params);
-let insertedID = results.insertId;
+let insertedID = results[0].insertId;
 let updatePasswordHash = `
 UPDATE web_user
 SET password_hash = sha2(concat(:password,:pepper,password_salt),512)
